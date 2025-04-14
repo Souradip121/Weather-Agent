@@ -5,3 +5,4 @@ geopandas
 autogen
 google-generativeai
 python-dotenv
+ag2[openai]
