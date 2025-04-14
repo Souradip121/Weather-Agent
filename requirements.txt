@@ -1,0 +1,7 @@
+requests
+matplotlib
+shapely
+geopandas
+autogen
+google-generativeai
+python-dotenv
