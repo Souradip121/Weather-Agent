@@ -18,13 +18,19 @@ def create_fire_agent():
             ]
         },
     )
+    user_proxy = ConversableAgent(
+    name="User",
+    llm_config=False,
+    is_termination_msg=lambda msg: msg.get("content") is not None and "TERMINATE" in msg["content"],
+    human_input_mode="NEVER",
+)
 
     register_function(
         f=fire_tools.summarize_fire_data,
         caller=agent,
-        executor=agent,
+        executor=user_proxy,
         name="summarize_fire_data",
         description="Summarizes fire locations in India using FIRMS satellite data."
     )
 
-    return agent
+    return user_proxy
