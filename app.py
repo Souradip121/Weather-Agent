@@ -27,11 +27,11 @@ def main():
 )
 
     register_function(
-        f=fire_tools.summarize_fire_data,
+        f=fire_tools.fire_by_state,
         caller=agent,
         executor=user_proxy,
         name="summarize_fire_data",
-        description="Summarizes fire locations in India using FIRMS satellite data."
+        description="Summarizes fire locations in India using FIRMS satellite data. Takes and converts location to bbox coordinates with one decimal points"
     )    
     chat_result = user_proxy.initiate_chat(agent, message="Hi")
     # while True:
